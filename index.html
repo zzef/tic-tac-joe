@@ -1,0 +1,162 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
+  <meta charset="utf-8">
+
+	<title>TIC TAC TOE</title>
+	<style>
+	body {
+		margin:auto;
+		display:table;
+		text-align:center;
+		font-family: 'Staatliches', cursive;
+		font-size:70px;
+		color:rgb(230,60,80);
+	}
+	html, body {
+		height: 100%;
+	}
+	table {
+	  border-collapse: collapse;
+	  padding:0px !important;
+	  
+	}
+	td:after {
+
+	}
+	
+	td:hover {
+		background-color:rgba(255,255,255,0.5);
+		animation-name: op2;
+		animation-duration: 0.3s;
+	}
+
+	td {
+	  cursor:default;
+	  border: 5px solid white;
+	  width: 33.333%;
+	  text-align:center;
+	  vertical-align:middle;
+	  display: table-cell;
+	  height:100px;width:100px;
+	  font-size:70px;
+	  color:white;
+	}
+	td:first-of-type {
+	  border-left-color: transparent;
+	  border-top-color: transparent;
+	}
+	td:nth-of-type(2) {
+	  border-top-color: transparent;
+	}
+	td:nth-of-type(3) {
+	  border-right-color: transparent;
+	  border-top-color: transparent;
+	}
+	tr:nth-of-type(3) td {
+	  border-bottom-color: transparent;
+	}
+	.gamecontainer {
+		vertical-align:middle;
+		display:table-cell;
+	}
+	.tablecontainerwide {
+		padding:40px;
+		display:inline-block;
+		background-color:rgb(230,60,80);
+	}
+	
+	.tablecontainer {
+		display:inline-block;
+		background-color:rgb(230,60,80);
+		overflow:hidden;
+	}
+	.infocontainer {
+		padding:20px;
+		
+	}
+	.anim {
+		animation-name: op;
+		animation-duration: 0.2s;
+	}
+	
+	#restartbutton {
+		display:none
+	}
+	
+	.btng {
+		font-family: 'Staatliches', cursive;
+		background-color:rgb(230,60,80);
+		color:white;
+		padding:10px 20px 10px 20px;
+		font-size:20px;
+		border:none;
+		display:inline;
+		cursor:default
+	}
+	
+	.btnmode {
+		padding:5px 10px 5px 10px;
+		color:rgb(230,60,80);
+		background-color:white;
+	}
+	
+	.btnmode:hover {
+		padding:5px 10px 5px 10px;
+		background-color:rgb(230,60,80) !important;
+		color:white !important;
+	}
+	
+	.btng:hover {
+		background-color:rgb(100,100,255);
+	}
+	
+	@keyframes op {
+	  from {opacity:0;}
+	  to {opacity:1;}
+	}
+	
+	@keyframes op2 {
+	  from {background-color:rgba(255,255,255,0);}
+	  to {background-color:rgba(255,255,255,0.5);}
+	}
+	
+	.infoarea {
+		font-size:25px;
+	}
+	.mode {
+		font-size:30px;
+	}
+
+	</style>
+</head>
+
+<body>
+	
+	<div class="gamecontainer">
+		<div class="infocontainer">
+			TIC TAC JOE
+			<div class="mode">Mode: <div class="btng btnmode" id="easybtn" onclick="setmode(&quot;easybtn&quot;)" style="background-color: white; color: rgb(230, 60, 80);">easy</div> <div class="btng btnmode" id="mediumbtn" onclick="setmode(&quot;mediumbtn&quot;)" style="background-color: white; color: rgb(230, 60, 80);">medium</div> <div class="btng btnmode" id="impbtn" onclick="setmode(&quot;impbtn&quot;)" style="background-color: rgb(230, 60, 80); color: white;">impossible</div></div>
+		</div>
+		<div class="tablecontainerwide">
+			<div class="tablecontainer">
+				<table id="board"><tr><td id="c00" onclick="makeAMove(0,0)"><div class="anim">✕</div></td><td id="c01" onclick="makeAMove(0,1)"><div class="anim">◯</div></td><td id="c02" onclick="makeAMove(0,2)"><div class="anim">✕</div></td></tr><tr><td id="c10" onclick="makeAMove(1,0)"><div class="anim">✕</div></td><td id="c11" onclick="makeAMove(1,1)"><div class="anim">◯</div></td><td id="c12" onclick="makeAMove(1,2)"><div class="anim">◯</div></td></tr><tr><td id="c20" onclick="makeAMove(2,0)"><div class="anim">◯</div></td><td id="c21" onclick="makeAMove(2,1)"><div class="anim">✕</div></td><td id="c22" onclick="makeAMove(2,2)"><div class="anim">✕</div></td></tr></table>
+			</div>
+		</div>
+		<div class="infocontainer">
+			<div id="go"></div>
+			<div id="info" class="infoarea">Your turn now</div>
+			
+			<button onclick="startgame()" id="startbutton" class="btng" style="display: none;">Start Game</button>
+			<button onclick="replay()" id="restartbutton" class="btng" style="display: inline;">New Game</button>
+		</div>
+
+	</div>
+
+
+
+
+
+  <script src="js/tictacjoe.js" type="text/javascript"></script>
+</html>
